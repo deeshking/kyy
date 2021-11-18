@@ -1307,20 +1307,6 @@ headerType: 1
  prep = await ikyy.prepareMessageFromContent(from,{buttonsMessage},{})
  ikyy.relayWAMessage(prep)
  break
- case 'spamcall':
-if (!isPremium) return reply(mess.OnlyPrem)
-if (args.length > 1) return reply(`Cara penggunaan : ${command} no hp`)
-if (isNaN(args[1]) && args[1].startsWith('62')) return reply(`Harus berupa angka dan pastikan tidak memasukkan kode negara, contoh: ${command} 8127668234`)
-fetchJson(`https://api.zeks.xyz/api/spamcall?apikey=chika-key&no=${args[1]}`)
- .then((data) => {
-textImg(data.result.logs)
- })
- .catch((err) => {
-sendMess(ownerNumber, `${command} Error:` + err)
-reply(mess.error.api)
- })
-  }
-  break
   case 'next': case 'leave': case "stop": {
  if (isGroup) return reply('Fitur Tidak Dapat Digunakan Untuk Group!')
 ikyy.anonymous = ikyy.anonymous ? ikyy.anonymous: {}
